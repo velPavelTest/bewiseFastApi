@@ -3,23 +3,23 @@
 
 ## Обзор:
 ### Worflow
-* Отправить запрос на endpoint на добаление нужного числа вопросов в базу.
+* Отправить запрос на endpoint на добавление нужного числа вопросов в базу.
 
 ### Точки входа:
-* http://localhost:8002/ - веб свервис
+* http://localhost:8002/ - веб сервис
   * http://localhost:8002/docs - документация
   * http://localhost:8002/add_questions/ - api endpoint добавления вопросов.
 * http://localhost:8080/ - веб интерфейс доступа к БД.
 
 ### Основные сущности
 #### Вопрос
-* ID - ID вопроса в нашей БД.
+* ID - ID вопроса в БД приложения.
 * origin_id - ID вопроса в источнике (откуда взяли). 
-* source - источник вопроса. Откуда мы его взяли.
+* source - источник вопроса.
 * question_text - текст вопроса.
 * answer - ответ на вопрос.
 * create_datetime_origin - датавремя добавления вопроса в источник.
-* create_datetime - датавремя добавления вопроса в нашу БД.
+* create_datetime - датавремя добавления вопроса в БД приложения.
 
 ### Стек
 * FastApi
@@ -29,23 +29,23 @@
 
 ## Установка проекта
 #### Установка через docker
-* Установите docker
+* Установите docker-compose
 
 * Склонируйте репозиторий с помощью git
  ```bash
-git clone 
+git clone https://github.com/velPavelTest/bewiseFastApi.git
 ```
 
 * Перейдите в папку проекта:
 ```bash
-cd 
+cd bewiseFastApi
 ```
 
 * Измените логин-пароль к БД в файле .env
 
 * Запуск и сборка контейнеров:
 ```bash
-sudo docker-compose up -d --build
+docker-compose up -d --build
 ```
 **Готово**
 * http://localhost:8002/docs - документация

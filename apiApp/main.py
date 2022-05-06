@@ -28,9 +28,9 @@ class QuestionOut(BaseModel):
         orm_mode = True
 
 
-@app.get("/")
-def main():
-    return RedirectResponse(url="/docs/")
+# @app.get("/")
+# def main():
+#     return RedirectResponse(url="/docs/")
 
 
 @app.post(
@@ -61,7 +61,7 @@ def add_questions(db: Session = Depends(get_db), questions_num: int = Body(..., 
     unique_questions:dict(int, models.Questions) = dict()
     i = 0
     while len(unique_questions) < questions_num and i < number_of_attempts:
-        # number_of_attempts раз пытаемся добрать нужное количесвто вопросов до уникальных.
+        # number_of_attempts раз пытаемся добрать нужное количество вопросов до уникальных.
         # Заодно пытаемся добрать вопросы если у нас запросили больше, чем лимит отдачи источника.
         #@inspect можно повысить шансы на удачу если после n-ой попытке запрашивать не количество не найденных, а больше (limit текущего источника 100).
         new_questions = get_questions_from_source(source, questions_num-len(unique_questions))
